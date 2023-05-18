@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .sidebar {
+    width: 300px; /* Aumentar el ancho del menú lateral */
+    background-color: #fff; /* Cambiar el color de fondo a blanco */
+    color: #000; /* Cambiar el color del texto a negro */
+    position: relative;
+    flex: 0 0 300px; /* Ajustar la propiedad flex para que coincida con el nuevo ancho */
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid #000; /* Añadir un borde a la derecha */
+    height: 100vh;
+    
+  }
+  
+  .menu-title {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+  }
+  
+  .sidebar ul li a {
+    color: #000; /* Cambiar el color del texto de los enlaces a negro */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #ff6347; 
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+   
+    box-sizing: border-box;
+  
+  }
+  .container2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  }

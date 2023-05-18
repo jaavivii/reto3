@@ -1,0 +1,78 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+   var miGrafico;
+
+function actualizarDatos() {
+    $.getJSON('/api/temperaturas/lista', function(datos) {
+        // Inicializa los arrays de temperaturas, humedades y fechas
+        let temperaturas = [];
+        let humedades = [];
+        let fechas = [];
+
+        // Itera a través de los datos y agrega cada temperatura, humedad y fecha a los arrays
+        datos.forEach(dato => {
+            temperaturas.push(dato.temperatura);
+            humedades.push(dato.humedad);
+            let fecha = new Date(dato.fecha);
+            fechas.push(fecha.toLocaleString());
+        });
+
+        // Comprueba si el gráfico ya existe
+        if (miGrafico) {
+            // Si existe, actualiza sus datos
+            miGrafico.data.labels = fechas;
+            miGrafico.data.datasets[0].data = temperaturas;
+            miGrafico.data.datasets[1].data = humedades;
+            miGrafico.update();
+        } else {
+            // Si no existe, crea un nuevo gráfico
+            var ctx = document.getElementById('miGrafico').getContext('2d');
+            miGrafico = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: fechas,
+                    datasets: [{
+                        label: 'Temperatura (°C)',
+                        data: temperaturas,
+                        borderColor: 'rgb(255, 99, 132)',
+                        fill: false
+                    }, {
+                        label: 'Humedad (%)',
+                        data: humedades,
+                        borderColor: 'rgb(75, 192, 192)',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Fecha'
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Valor'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
+}
+
+// Crea el gráfico cuando la página se carga por primera vez
+actualizarDatos();
+
+// Luego actualiza el gráfico cada 1 segundo
+setInterval(actualizarDatos, 1000);
+
+</script>

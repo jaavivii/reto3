@@ -1,0 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function actualizarDatos() {
+        $.getJSON('/api/temperaturas', function(nuevaTemperatura) {
+            // Actualiza los elementos de la página con los nuevos datos
+            $('#temperatura').text(nuevaTemperatura.temperatura + "°C");
+            $('#humedad').text(nuevaTemperatura.humedad + "%");
+        });
+    }
+
+    // Actualiza los datos cuando la página se carga por primera vez
+    actualizarDatos();
+
+    // Luego actualiza los datos cada 10 segundos
+    setInterval(actualizarDatos, 1000);
+</script>

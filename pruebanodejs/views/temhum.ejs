@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/tempe.css">
+    <title>Temperaturas</title>
+  </head>
+  <body>
+    <%- include('ayaxlimit20') %>
+    <%- include('ayaxlimit1') %>
+
+    <div class="container2">
+      <% if (nuevaTemperatura) { %>
+        <div class="temperature">
+          <div>Temperatura</div>
+          <div id="temperatura"><%= nuevaTemperatura.temperatura %>°C</div>
+        </div>
+        <div class="humidity">
+          <div>Humedad</div>
+          <div id="humedad"><%= nuevaTemperatura.humedad %>%</div>
+        </div>
+      <% } else { %>
+        <div class="no-data">No hay datos disponibles</div>
+      <% } %>
+        
+    </div>
+    <div class="container3">
+      <canvas id="miGrafico"></canvas>
+    </div>
+    
+        
+    
+  
+  </body>
+</html>

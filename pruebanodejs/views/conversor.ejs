@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/menu2.css">
+    <link rel="stylesheet" href="css/convers.css">
+</head>
+<body>
+    <%- include('header') %>
+    <div class="container">
+        <%- include('menulateral2') %>
+        <div class="main-content">
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <link rel="stylesheet" type="text/css" href="styles.css">
+            </head>
+            <body>
+              <div class="container">
+                <h1>Conversor de XML</h1>
+                <form action="/upload" method="POST" enctype="multipart/form-data" class="xml-form">
+                  <div class="input-field">
+                    <input type="file" name="xmlFile" accept=".xml" required>
+                  </div>
+                  <div class="input-field">
+                    <input type="text" name="collectionName" placeholder="Nombre de la colección" required>
+                  </div>
+                  <button type="submit" class="submit-button">Convertir y guardar en MongoDB</button>
+                </form>
+              </div>
+            </body>
+            </html>
+            
+            
+        </div>
+    </div>
+    <%- include('footer') %>
+    <script src="js/menu2.js"></script>
+
+</body>
+</html>

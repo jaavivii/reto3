@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+  .temperature,
+  .humidity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #F9A825;
+    color: #FFFFFF;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .humidity {
+    background-color: #2196F3;
+  }
+  .container3{
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 2px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+ #miGrafico{
+   display: block;
+ }
