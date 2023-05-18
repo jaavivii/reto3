@@ -1,0 +1,21 @@
+import RPI.GPIO as GPIO
+import time
+GPIO.setmode (GPIO.BCM)
+GPIO.setmode (GPIO.BOARD)
+
+TRIG_PIN=
+ECHO_PIN=
+
+GPIO.setup(TRIG_PIN,GPIO.OUT)
+GPIO.setup(ECHO_PIN,GPIO.IN)
+GPIO.OUTPUT(TRIG_PIN,GPIO.LOW)
+
+time.sleep(2)
+
+GPIO.output(TRIG_PIN,GPIO.HIGH)
+
+time.sleep(0.00001)
+
+GPIO.output(TRIG_PIN,GPIO.LOW)
+
+
