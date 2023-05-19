@@ -1,0 +1,94 @@
+*{
+  margin:0;
+}
+.side-menu {
+  height: calc(100% - var(--header-height) - var(--footer-height));
+  width: 0; /* Establece el ancho en 0 */
+  position: fixed;
+  top: var(--header-height);
+  bottom: var(--footer-height);
+  left: 0;
+  background-color: #fff; /* Cambia el color de fondo a blanco */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+  border-radius: 0 10px 10px 0; /* Agrega bordes redondeados */
+  overflow-x: hidden;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  color: #333;
+  text-align: center;
+}
+
+.side-menu a {
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem;
+  display: block;
+  transition: background-color 0.3s; /* Agrega una transición suave al cambiar el color de fondo */
+}
+
+.side-menu a:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo en el hover */
+}
+
+.close-btn {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem;
+  align-self: flex-end;
+  color: #333;
+}
+
+.hamburger-container {
+  width: 60px;
+  background-color: #fff; /* Cambia el color de fondo a blanco */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #333;
+}
+
+/* Estilos para el contenido principal */
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  height: 100%;
+  padding-left: 0;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-content {
+  flex-grow: 1;
+  transition: padding-left 0.3s;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+:root {
+  --header-height: 105px;
+  --footer-height: 105px;
+}
+

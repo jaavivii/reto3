@@ -1,0 +1,9 @@
+<% if (message) { %>
+    <div id="message"><%= message %></div>
+    <script>
+      setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+        window.location.href = "/";
+      }, 1000);
+    </script>
+  <% } %>

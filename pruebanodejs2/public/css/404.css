@@ -1,0 +1,41 @@
+body{
+    background-image: url(https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/02/4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif?resize=476%2C280&ssl=1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+    
+}
+
+.cuatro{
+    display: flex;
+    height: 80vh;
+    width: auto;
+    justify-content: center;
+    align-content: center;
+}
+h1 {
+    align-self: center;
+    font-family: Arial, sans-serif;
+    font-size: 120px;
+    color: #ff0000;
+    text-align: center;
+    margin-top: 20%;
+
+    /* Aplicamos ambas animaciones */
+    animation: cambioColor 5s infinite, mover 2s infinite;
+    -webkit-animation: cambioColor 5s infinite, mover 2s infinite;
+}
+
+@keyframes mover {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes cambioColor {
+    0% { color: red; }
+    25% { color: orange; }
+    50% { color: yellow; }
+    75% { color: green; }
+    100% { color: blue; }
+}

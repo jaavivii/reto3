@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="css/login.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/login.js"></script>
+</head>
+<body>
+  <%- include('header') %>
+
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4">
+      <h1 class="animate__animated animate__fadeInDown">Iniciar sesión</h1>
+      <form method="POST" action="/login">
+        <div class="form-group">
+          <label for="user">Usuario:</label>
+          <input type="text" class="form-control" id="user" name="user" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('footer') %>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/menu2.css">
+    <link rel="stylesheet" href="css/conversor.css">
+</head>
+<body>
+    <%- include('header') %>
+    <div class="container">
+        <%- include('menulateral2') %>
+        <div class="main-content">
+            <div class="container6">
+              <h1>Conversor de XML</h1>
+              <form id="upload-form" class="xml-form">
+                <div class="input-field">
+                  <input type="file" name="xmlFile" accept=".xml" required>
+                </div>
+                <div class="input-field">
+                  <input type="text" name="collectionName" placeholder="Nombre de la colección" required>
+                </div>
+                <button type="submit" class="submit-button">Convertir y guardar en MongoDB</button>
+              </form>
+            </div>
+          </div>
+          
+          
+               
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span id="close" class="close">&times;</span>
+              <pre id="output"></pre>
+            </div>
+          </div>
+          
+        
+        </div>
+    </div>
+    <%- include('footer') %>
+    <script src="js/menu2.js"></script>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+        
+          const formData = new FormData(event.target);
+        
+          fetch('/upload', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Mostrar el contenido convertido
+            document.getElementById('output').textContent = JSON.stringify(data.convertedData, null, 2);
+          })
+          .catch(error => console.error(error));
+        });
+        </script>
+
+        <script>
+                document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Mostrar el contenido convertido
+                document.getElementById('output').textContent = JSON.stringify(data.convertedData, null, 2);
+                // Mostrar la ventana emergente
+                document.getElementById('modal').style.display = 'block';
+            })
+            .catch(error => console.error(error));
+            });
+
+            // Cuando el usuario haga click en el botón de cerrar, cierra la ventana emergente
+            document.getElementById('close').onclick = function() {
+            document.getElementById('modal').style.display = 'none';
+            }
+
+        </script>
+</body>
+</html>

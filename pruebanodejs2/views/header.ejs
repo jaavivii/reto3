@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/headersimple.css">
+</head>
+<body>
+    
+    <header>
+        <div class="header-container">
+          <div></div> <!-- Espacio vacío para alinear el logo al centro -->
+          <div class="logo-container">
+            <a href="/"><img class="logo-image" src="img/perro-security2.jpg" alt="Logotipo"></a>
+          </div>
+          <div class="user-container">
+            <% if (usuario) { %>
+              <div class="user-profile" id="user-profile">
+                <div class="profile-image">
+                  
+                    <img src="<%= fotoUsuario %>" alt="Foto de perfil">
+                 
+                </div>
+                <span><%= usuario %></span>
+                
+                <div class="dropdown-menu" id="dropdown-menu">
+                  <a href="/temperaturas">Temperaturas</a>
+                  <a href="/stream">Stream</a>
+                  <a href="/control">Control</a>
+                  <a href="/conversor">Conversor</a>
+                  <% if (usuario) { %>
+                    <form action="/logout" method="get">
+                      <button type="submit">Cerrar sesión</button>
+                    </form>
+                  <% } %>
+                </div>
+          
+              </div>
+            <% } %>
+          </div>
+          
+        </div>
+      </header>  
+      <script src="js/menuperfil.js"></script>
+      <script>
+        console.log(fotoUsuario);
+      </script>
+</body>
+</html>

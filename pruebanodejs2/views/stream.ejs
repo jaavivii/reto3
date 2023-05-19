@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/menu2.css">
+    <link rel="stylesheet" href="css/stream.css">
+</head>
+<body>
+    <%- include('header') %>
+    <div class="container">
+        <%- include('menulateral2') %>
+        <div class="main-content container4">
+            <h1>Transmisión de cámara Raspberry Pi</h1>
+            <img src="http://192.168.4.91:8080/stream.mjpg"/>
+          </div>
+       
+      </div>
+      
+     
+      
+    <%- include('footer') %>
+    <script src="js/menu2.js"></script>
+</body>
+</html>
